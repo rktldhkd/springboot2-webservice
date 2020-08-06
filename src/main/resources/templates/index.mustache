@@ -17,12 +17,12 @@
                 <th>최종수정일</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
             <!-- 바로 밑의 #posts 는 for문 실행하는것과 동일한 효과. mustache 문법 -->
             {{#posts}}
                 <tr>
                     <td>{{id}}</td>
-                    <td>{{title}}</td>
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                     <td>{{author}}</td>
                     <td>{{modifiedDate}}</td>
                 </tr>
@@ -30,5 +30,6 @@
         </tbody>
     </table>
 </div>
+
 <!-- 위/아래코드 의미는 현재 mustache 파일 기준으로 다른 파일 불러온다는 것. -->
 {{>layout/footer}}

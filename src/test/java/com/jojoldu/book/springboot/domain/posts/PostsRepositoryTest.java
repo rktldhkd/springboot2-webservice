@@ -58,6 +58,24 @@ public class PostsRepositoryTest {
     }
 
     @Test
+    public void Posts_삭제된다() throws Exception{
+        //given - DB에 아무 데이터도 없으므로 수정하기 위해 데이터 하나 넣어준다.
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build()
+        );
+
+        //when
+        postsRepository.delete(savedPosts);
+
+        //then
+        Long cnt_posts = postsRepository.count();
+        assertThat(cnt_posts).isEqualTo(0L);
+    }
+
+    @Test
     public void BaseTimeEntity_등록(){
         //given
         LocalDateTime now = LocalDateTime.of(2020,8,3,0,0,0);
