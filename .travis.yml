@@ -6,6 +6,10 @@ branches:
   only:
     - master
 
+#CI로 빌드 시, permission denied 떠서 여기서 권한주는 코드 추가.
+before_install:
+  - chmod +x gradlew
+
 #Travis CI서버의 Home
 cache:
   directories:
