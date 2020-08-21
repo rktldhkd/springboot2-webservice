@@ -19,7 +19,7 @@ do
 
   if [ ${UP_COUNT} -ge 1 ]
   then # $up_count >= 1 ("real" 문자열이 있는지 검증)
-    echo "> Health check 성공"
+    echo "> Health check 성공."
     switch_proxy
     break
   else
