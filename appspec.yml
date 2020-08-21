@@ -20,7 +20,7 @@ hooks:
     - location: start.sh # nginx와 연결되어있지않은 port로 새버전의 스프링부트를 배포/시작한다.
       timeout: 60
       runas: ec2-user
-  validateService:
+  ValidateService:
     - location: health.sh # 새 스프링부트가 정상적으로 실행됐는지 확인한다.
       timeout: 60
       runas: ec2-user
