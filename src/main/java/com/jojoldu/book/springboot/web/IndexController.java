@@ -32,7 +32,12 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postSave(){
+    public String postSave(Model model, @LoginUser SessionUser user){
+        //소셜 로그인 후, 세션에 저장한 사용자 정보(session dto-CustomOAuth2UserService.java) 가져옴.
+        //SessionUser user = (SessionUser)httpSession.getAttribute("user");
+        //위의 소스를 @LoginUser 애노테이션을 직접 생성하여 대체. @LoginUser 애노티에션이 위의 코드 역할함.
+        if(user != null)    model.addAttribute("userName", user.getName());
+
         return "posts-save";
     }
 
